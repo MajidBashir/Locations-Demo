@@ -21,24 +21,31 @@
 
 @implementation CarListingsViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dataUpdated:)
-                                                 name:@"MyDataUpdatedNotification"
+                                                 name:DATA_MANAGER_UPDATE_NOTIFICATION
                                                object:nil];
-
 }
 
--(void)dataUpdated:(NSNotification*)notification {
-    
-    self.allListings = [[NSArray alloc]initWithArray: [[DataManager sharedManager] completeData]];
-    [self.CarListingTableview reloadData];
-
+- (void)viewDidLoad {
+    if ([[DataManager sharedManager] isDataUpdated]) {
+        //data manger has updated its data fetch it from shared instance.
+        //UpdateUI
+        self.allListings = [[NSArray alloc]initWithArray: [[DataManager sharedManager] completeData]];
+        [self.CarListingTableview reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dataUpdated:(NSNotification*)notification {
+    self.allListings = [[NSArray alloc]initWithArray: [[DataManager sharedManager] completeData]];
+    [self.CarListingTableview reloadData];
 }
 
 #pragma mark - Tableview data source and delegates

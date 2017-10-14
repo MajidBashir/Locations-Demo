@@ -156,17 +156,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QVA-UI-z0S" firstAttribute="height" secondItem="GTX-Op-y6A" secondAttribute="height" id="0tj-JR-ymA"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EOV-8k-ygs" secondAttribute="trailing" constant="20" symbolic="YES" id="2RM-5O-TSj"/>
                                                 <constraint firstItem="x1O-db-tPy" firstAttribute="top" secondItem="GTX-Op-y6A" secondAttribute="bottom" constant="8" id="3Rc-vA-Mp8"/>
                                                 <constraint firstItem="EQz-ae-3ns" firstAttribute="trailing" secondItem="QVA-UI-z0S" secondAttribute="trailing" id="5PT-sV-I4y"/>
                                                 <constraint firstItem="Q5i-LZ-iMY" firstAttribute="top" secondItem="Pbj-TT-Zrw" secondAttribute="bottom" constant="9" id="8AA-VV-ZDy"/>
                                                 <constraint firstItem="4tT-ZC-gVk" firstAttribute="trailing" secondItem="Q5i-LZ-iMY" secondAttribute="trailing" id="8bl-7e-PWr"/>
                                                 <constraint firstItem="4tT-ZC-gVk" firstAttribute="top" secondItem="Q5i-LZ-iMY" secondAttribute="bottom" constant="8" id="9BS-Nb-i1Y"/>
-                                                <constraint firstItem="CUq-7s-TMf" firstAttribute="height" secondItem="BkI-ZC-XYG" secondAttribute="height" id="AAl-na-U90"/>
-                                                <constraint firstItem="Pbj-TT-Zrw" firstAttribute="height" secondItem="G2o-ac-fcb" secondAttribute="height" id="AG6-JE-Gx1"/>
+                                                <constraint firstItem="GTX-Op-y6A" firstAttribute="centerY" secondItem="QVA-UI-z0S" secondAttribute="centerY" id="9mh-Yp-9MP"/>
                                                 <constraint firstItem="QVA-UI-z0S" firstAttribute="leading" secondItem="GTX-Op-y6A" secondAttribute="trailing" constant="21.5" id="AXf-6j-c8F"/>
                                                 <constraint firstItem="d7A-T7-OzO" firstAttribute="leading" secondItem="fAI-5m-rDf" secondAttribute="leading" constant="8" id="BqM-gy-6Ib"/>
+                                                <constraint firstItem="x1O-db-tPy" firstAttribute="centerY" secondItem="EQz-ae-3ns" secondAttribute="centerY" id="Cd3-gk-Tt9"/>
                                                 <constraint firstItem="GTX-Op-y6A" firstAttribute="leading" secondItem="fAI-5m-rDf" secondAttribute="leading" constant="8" id="Cvf-yF-Ihc"/>
                                                 <constraint firstItem="x1O-db-tPy" firstAttribute="leading" secondItem="GTX-Op-y6A" secondAttribute="leading" id="Fa1-bh-ezK"/>
                                                 <constraint firstAttribute="trailing" secondItem="QVA-UI-z0S" secondAttribute="trailing" constant="8" id="HFb-cl-x3O"/>
@@ -175,28 +174,29 @@
                                                 <constraint firstItem="EOV-8k-ygs" firstAttribute="top" secondItem="d7A-T7-OzO" secondAttribute="bottom" constant="8" id="Lh4-80-TXX"/>
                                                 <constraint firstItem="Pbj-TT-Zrw" firstAttribute="top" secondItem="CUq-7s-TMf" secondAttribute="bottom" constant="9" id="N6q-fc-YOX"/>
                                                 <constraint firstItem="G2o-ac-fcb" firstAttribute="leading" secondItem="fAI-5m-rDf" secondAttribute="leading" constant="8" id="OVm-Mw-h5e"/>
-                                                <constraint firstItem="Q5i-LZ-iMY" firstAttribute="height" secondItem="d7A-T7-OzO" secondAttribute="height" id="OZS-kI-ouG"/>
+                                                <constraint firstItem="G2o-ac-fcb" firstAttribute="centerY" secondItem="Pbj-TT-Zrw" secondAttribute="centerY" id="Ph9-49-JmO"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GTX-Op-y6A" secondAttribute="trailing" constant="20" symbolic="YES" id="VNB-ot-CgM"/>
                                                 <constraint firstItem="G2o-ac-fcb" firstAttribute="top" secondItem="BkI-ZC-XYG" secondAttribute="bottom" constant="9" id="W9P-7E-bXe"/>
                                                 <constraint firstItem="CUq-7s-TMf" firstAttribute="leading" secondItem="BkI-ZC-XYG" secondAttribute="trailing" constant="8.5" id="WwL-C6-jJh"/>
                                                 <constraint firstItem="BkI-ZC-XYG" firstAttribute="leading" secondItem="fAI-5m-rDf" secondAttribute="leading" constant="8" id="Xe6-C9-sgf"/>
                                                 <constraint firstItem="CUq-7s-TMf" firstAttribute="trailing" secondItem="EQz-ae-3ns" secondAttribute="trailing" id="aMu-Zq-3NO"/>
-                                                <constraint firstItem="4tT-ZC-gVk" firstAttribute="height" secondItem="EOV-8k-ygs" secondAttribute="height" id="crg-na-dBz"/>
-                                                <constraint firstItem="QVA-UI-z0S" firstAttribute="top" secondItem="GTX-Op-y6A" secondAttribute="top" id="g3o-zm-6cU"/>
                                                 <constraint firstItem="EOV-8k-ygs" firstAttribute="leading" secondItem="fAI-5m-rDf" secondAttribute="leading" constant="8" id="gBB-8d-ysX"/>
                                                 <constraint firstItem="BkI-ZC-XYG" firstAttribute="top" secondItem="x1O-db-tPy" secondAttribute="bottom" constant="10" id="gtG-pD-3yQ"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d7A-T7-OzO" secondAttribute="trailing" constant="20" symbolic="YES" id="gtt-5e-svU"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G2o-ac-fcb" secondAttribute="trailing" constant="20" symbolic="YES" id="hYe-oh-XhC"/>
                                                 <constraint firstItem="4tT-ZC-gVk" firstAttribute="leading" secondItem="EOV-8k-ygs" secondAttribute="trailing" constant="37.5" id="j7h-4U-F9b"/>
+                                                <constraint firstItem="d7A-T7-OzO" firstAttribute="centerY" secondItem="Q5i-LZ-iMY" secondAttribute="centerY" id="jAG-gP-YCB"/>
                                                 <constraint firstItem="GTX-Op-y6A" firstAttribute="top" secondItem="fAI-5m-rDf" secondAttribute="top" constant="5" id="jP5-qk-aED"/>
+                                                <constraint firstItem="QVA-UI-z0S" firstAttribute="top" secondItem="fAI-5m-rDf" secondAttribute="top" constant="5" id="kF2-f3-mvS"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BkI-ZC-XYG" secondAttribute="trailing" constant="20" symbolic="YES" id="mxE-il-CdY"/>
                                                 <constraint firstItem="Q5i-LZ-iMY" firstAttribute="trailing" secondItem="Pbj-TT-Zrw" secondAttribute="trailing" id="rxc-XZ-zYs"/>
                                                 <constraint firstItem="d7A-T7-OzO" firstAttribute="top" secondItem="G2o-ac-fcb" secondAttribute="bottom" constant="9" id="rzS-P1-KEl"/>
+                                                <constraint firstAttribute="bottom" secondItem="4tT-ZC-gVk" secondAttribute="bottom" constant="9.5" id="teZ-3R-ZFH"/>
                                                 <constraint firstItem="Pbj-TT-Zrw" firstAttribute="trailing" secondItem="CUq-7s-TMf" secondAttribute="trailing" id="uJr-jR-Gxu"/>
+                                                <constraint firstItem="EOV-8k-ygs" firstAttribute="centerY" secondItem="4tT-ZC-gVk" secondAttribute="centerY" id="ugi-DZ-pBP"/>
                                                 <constraint firstItem="EQz-ae-3ns" firstAttribute="top" secondItem="QVA-UI-z0S" secondAttribute="bottom" constant="8" id="uh5-m8-yDF"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x1O-db-tPy" secondAttribute="trailing" constant="20" symbolic="YES" id="vhG-Gt-aD1"/>
                                                 <constraint firstItem="EQz-ae-3ns" firstAttribute="leading" secondItem="x1O-db-tPy" secondAttribute="trailing" constant="4" id="wY0-rH-cBB"/>
-                                                <constraint firstItem="EQz-ae-3ns" firstAttribute="height" secondItem="x1O-db-tPy" secondAttribute="height" id="xzu-f9-w2Y"/>
                                                 <constraint firstItem="Pbj-TT-Zrw" firstAttribute="leading" secondItem="G2o-ac-fcb" secondAttribute="trailing" constant="8" id="z90-fw-axA"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -252,13 +252,14 @@
             </objects>
             <point key="canvasLocation" x="-1121" y="117"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar View Controller-->
         <scene sceneID="WuS-en-HFr">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kBl-CY-kVB" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kBl-CY-kVB" customClass="CustomTabBarViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Zdz-7I-UdV"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oGy-uO-IYL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

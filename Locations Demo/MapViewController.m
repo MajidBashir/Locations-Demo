@@ -10,7 +10,6 @@
 #import "CarInformationModel.h"
 #import <MapKit/MapKit.h>
 #import "LocationPins.h"
-#import "LocationsFetcher.h"
 #import "DataManager.h"
 #import  <CoreLocation/CoreLocation.h>
 #import "DataManager.h"
@@ -34,15 +33,6 @@
     return _listOfLocations;
 }
 
-- (void)makeWebRequestForLocations {
-    LocationsFetcher *locFetcher = [[LocationsFetcher alloc]init];
-    __weak MapViewController *weakSelf = self;
-    [locFetcher fetchLocations:^(NSArray *locations, NSError *error) {
-        [weakSelf.listOfLocations removeAllObjects];
-        [weakSelf.listOfLocations addObjectsFromArray:locations];
-        [self addAnnotationForLocations:weakSelf.listOfLocations];
-    }];
-}
 
 - (void)addAnnotationForLocations:(NSArray *)locations {
     for (CarInformationModel *locationData in locations) {
@@ -50,37 +40,26 @@
         LocationPins *annotation = [[LocationPins alloc] initWithLocation:locationData.coordinates.mapCoordinates
                                                                     title:locationData.name
                                                                  subtitle:nil];
-        //annotation.coordinate = locationData.coordinates.mapCoordinates;
-//        annotation.title = locationData.name;
-//        annotation.subtitle = locationData.address;
         [self.mapView addAnnotation:annotation];
     }
 }
 
-//-(MKClusterAnnotation *)mapView:(MKMapView *)mapView clusterAnnotationForMemberAnnotations:(NSArray<id<MKAnnotation>> *)memberAnnotations{
-//
-//
-//}
+
 #pragma mark - CLLocation Manager Delegates
 
-
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.currentLocation = [locations lastObject];
-    // here we get the current location
 }
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
             self.mapView.showsUserLocation = true;
     }
 }
 
-
-
-
 #pragma mark - viewBehaviours
 #pragma mark -
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -90,13 +69,11 @@
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     
-    if ([CLLocationManager locationServicesEnabled] )
-    {
-        if (self.locationManager == nil )
-        {
+    if ([CLLocationManager locationServicesEnabled] ) {
+        if (self.locationManager == nil )  {
             self.locationManager = [[CLLocationManager alloc] init];
             self.locationManager.delegate = self;
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
             self.locationManager.distanceFilter = kCLLocationAccuracyHundredMeters; //kCLDistanceFilterNone// kDistanceFilter;
         }
         
@@ -106,11 +83,15 @@
     if ([[DataManager sharedManager] isDataUpdated]) {
         //data manger has updated its data fetch it from shared instance.
         //UpdateUI
+        [self.listOfLocations removeAllObjects];
+        [self.listOfLocations addObjectsFromArray: [[DataManager sharedManager]completeData]];
+        [self addAnnotationForLocations:self.listOfLocations];
+
     }
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dataManagerDataUpdatedNotification:)
@@ -118,14 +99,20 @@
                                                object:nil];
 }
 
-- (void)dataManagerDataUpdatedNotification:(NSNotification *)notification {
-    //data manger has updated its data fetch it from shared instance.
-    //UpdateUI
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Utility method for Notification
+- (void)dataManagerDataUpdatedNotification:(NSNotification *)notification {
+    //data manger has updated its data fetch it from shared instance.
+    //UpdateUI
+    [self.listOfLocations removeAllObjects];
+    [self.listOfLocations addObjectsFromArray: [[DataManager sharedManager]completeData]];
+    [self addAnnotationForLocations:self.listOfLocations];
 }
 
 
@@ -134,7 +121,7 @@
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
     [self.locationManager requestWhenInUseAuthorization];
-    [self makeWebRequestForLocations];
+//    [self makeWebRequestForLocations];
 }
 
 - (MKAnnotationView *)dequeueReusableAnnotationViewWithIdentifier:(NSString *)identifier forAnnotation:(id<MKAnnotation>)annotation{
