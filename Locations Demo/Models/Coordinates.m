@@ -1,0 +1,25 @@
+//
+//  Coordinates.m
+//  Locations Demo
+//
+//  Created by IOS developer on 10/13/17.
+//  Copyright © 2017 M Tribes. All rights reserved.
+//
+
+#import "Coordinates.h"
+
+@implementation Coordinates
+
+- (instancetype)initWithArray:(NSArray*)latLng{
+    self = [super init];
+    if (self) {
+        self.latitude = latLng[1];
+        self.longitude = latLng[0];
+        self.altitude = latLng[2];
+    }
+    return self;
+}
+- (CLLocationCoordinate2D)mapCoordinates {
+    return CLLocationCoordinate2DMake(self.latitude.doubleValue, self.longitude.doubleValue);
+}
+@end
