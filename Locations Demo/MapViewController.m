@@ -34,10 +34,11 @@
 
 
 - (void)addAnnotationForLocations:(NSArray *)locations {
-    for (CarInformationModel *locationData in locations) {
-        NSAssert([locationData isKindOfClass:[CarInformationModel class]], @"Location Data Array doesn't contain valid data");
-        CarsCustomAnnotation *annotation = [[CarsCustomAnnotation alloc] initWithLocation:locationData.coordinates.mapCoordinates
-                                                                    title:locationData.name
+    
+    for (CarInformationModel *carInformationModel in locations) {
+        NSAssert([carInformationModel isKindOfClass:[CarInformationModel class]], @"Location Data Array doesn't contain valid data");
+        CarsCustomAnnotation *annotation = [[CarsCustomAnnotation alloc] initWithLocation:carInformationModel.coordinates.mapCoordinates
+                                                                    title:carInformationModel.name
                                                                  subtitle:nil];
         [self.mapView addAnnotation:annotation];
     }
@@ -45,6 +46,7 @@
 
 
 #pragma mark - CLLocation Manager Delegates
+#pragma mark -
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     self.currentLocation = [locations lastObject];
@@ -56,8 +58,6 @@
     }
 }
 
-#pragma mark - viewBehaviours
-#pragma mark -
 
 
 - (void)startUpdatingLocation {
@@ -68,10 +68,12 @@
             self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
             self.locationManager.distanceFilter = kCLLocationAccuracyHundredMeters; //kCLDistanceFilterNone// kDistanceFilter;
         }
-        
         [self.locationManager startUpdatingLocation];
     }
 }
+
+#pragma mark - viewBehaviours
+#pragma mark -
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,7 +91,6 @@
         [self.listOfLocations removeAllObjects];
         [self.listOfLocations addObjectsFromArray: [[DataManager sharedManager]completeData]];
         [self addAnnotationForLocations:self.listOfLocations];
-
     }
     
 }
@@ -102,7 +103,6 @@
                                                object:nil];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -110,6 +110,8 @@
 
 
 #pragma mark - Utility method for Notification
+#pragma mark -
+
 - (void)dataManagerDataUpdatedNotification:(NSNotification *)notification {
     //data manger has updated its data fetch it from shared instance.
     //UpdateUI
@@ -125,12 +127,6 @@
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
     [self.locationManager requestWhenInUseAuthorization];
-//    [self makeWebRequestForLocations];
-}
-
-- (MKAnnotationView *)dequeueReusableAnnotationViewWithIdentifier:(NSString *)identifier forAnnotation:(id<MKAnnotation>)annotation{
-    MKAnnotationView * annotationView = [[MKAnnotationView alloc]init];
-    return annotationView;
 }
 
 
@@ -146,6 +142,7 @@
         }
     }
 }
+
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
 
@@ -172,7 +169,6 @@
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                       reuseIdentifier:@"CustomPinAnnotationView"];
             pinView.pinTintColor = [UIColor redColor];
-//            pinView.animatesDrop = YES;
             pinView.canShowCallout = YES;
 
         } else
