@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "CarInformationModel.h"
 #import <MapKit/MapKit.h>
-#import "LocationPins.h"
+#import "CarsCustomAnnotation.h"
 #import "DataManager.h"
 #import  <CoreLocation/CoreLocation.h>
 #import "DataManager.h"
@@ -37,7 +37,7 @@
 - (void)addAnnotationForLocations:(NSArray *)locations {
     for (CarInformationModel *locationData in locations) {
         NSAssert([locationData isKindOfClass:[CarInformationModel class]], @"Location Data Array doesn't contain valid data");
-        LocationPins *annotation = [[LocationPins alloc] initWithLocation:locationData.coordinates.mapCoordinates
+        CarsCustomAnnotation *annotation = [[CarsCustomAnnotation alloc] initWithLocation:locationData.coordinates.mapCoordinates
                                                                     title:locationData.name
                                                                  subtitle:nil];
         [self.mapView addAnnotation:annotation];
@@ -134,7 +134,7 @@
     
     NSArray *annotations = [_mapView annotations];
     for (int i=0; i<[annotations count]; i++) {
-        LocationPins *pins = (LocationPins*)[annotations objectAtIndex:i];
+        CarsCustomAnnotation *pins = (CarsCustomAnnotation*)[annotations objectAtIndex:i];
         if ([view isEqual:[_mapView viewForAnnotation:pins]]) {
             [[_mapView viewForAnnotation:pins] setHidden:NO];
         }else {
@@ -147,7 +147,7 @@
 
     NSArray *annotations = [_mapView annotations];
     for (int i=0; i<[annotations count]; i++) {
-        LocationPins *pins = (LocationPins*)[annotations objectAtIndex:i];
+        CarsCustomAnnotation *pins = (CarsCustomAnnotation*)[annotations objectAtIndex:i];
             [[_mapView viewForAnnotation:pins] setHidden:NO];
         }
 }
@@ -159,7 +159,7 @@
         return nil;
     
     // Handle any custom annotations.
-    if ([annotation isKindOfClass:[LocationPins class]] )
+    if ([annotation isKindOfClass:[CarsCustomAnnotation class]] )
     {
         // Try to dequeue an existing pin view first.
         MKPinAnnotationView *pinView = (MKPinAnnotationView*) [mapView  dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
@@ -171,8 +171,7 @@
 //            pinView.animatesDrop = YES;
             pinView.canShowCallout = YES;
 
-        }
-        else
+        } else
             pinView.annotation = annotation;
         
         if (mapView.selectedAnnotations.count > 0 && ![mapView.selectedAnnotations containsObject:annotation]) {

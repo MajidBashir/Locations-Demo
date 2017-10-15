@@ -6,9 +6,9 @@
 //  Copyright © 2017 M Tribes. All rights reserved.
 //
 
-#import "LocationPins.h"
+#import "CarsCustomAnnotation.h"
 
-@implementation LocationPins
+@implementation CarsCustomAnnotation
 @synthesize coordinate;
 
 - (id)initWithLocation:(CLLocationCoordinate2D)coord title:(NSString *)title subtitle:(NSString *)subtitle {

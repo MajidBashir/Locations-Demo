@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MKAnnotation.h>
-@interface LocationPins : NSObject <MKAnnotation> {
+@interface CarsCustomAnnotation : NSObject <MKAnnotation> {
     CLLocationCoordinate2D coordinate;
     
 }

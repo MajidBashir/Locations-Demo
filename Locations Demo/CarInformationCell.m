@@ -22,12 +22,12 @@
 }
 
 -(void)configureWithItem :(CarInformationModel *)model{
-    self.carNameLabel.text = model.name;
-    self.carAddressLabel.text = model.address;
-    self.carEngineTypeLabel.text = model.engineType;
-    self.carExteriorLabel.text = model.exterior;
-    self.carInteriorLabel.text = model.interior;
-    self.carVinLabel.text = model.vin;
+    self.carNameLabel.text = model.name ? model.name : @"N/A";
+    self.carAddressLabel.text = model.address ? model.address : @"N/A";
+    self.carEngineTypeLabel.text = model.engineType ? model.engineType : @"N/A" ;
+    self.carExteriorLabel.text = model.exterior ? model.exterior : @"N/A";
+    self.carInteriorLabel.text = model.interior ? model.interior : @"N/A";
+    self.carVinLabel.text = model.vin ? model.vin : @"N/A";
     
 }
 @end

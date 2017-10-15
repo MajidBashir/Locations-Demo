@@ -17,7 +17,7 @@
 		44A7AD911F909EDE00C661C8 /* CarInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7AD901F909EDE00C661C8 /* CarInformationModel.m */; };
 		44A7AD941F90A91A00C661C8 /* Coordinates.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7AD931F90A91A00C661C8 /* Coordinates.m */; };
 		44A7AD981F90CDA800C661C8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A7AD971F90CDA800C661C8 /* Default-568h@2x.png */; };
-		44A7ADA01F90F87400C661C8 /* LocationPins.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7AD9F1F90F87400C661C8 /* LocationPins.m */; };
+		44A7ADA01F90F87400C661C8 /* CarsCustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7AD9F1F90F87400C661C8 /* CarsCustomAnnotation.m */; };
 		44A7ADA31F90FA5800C661C8 /* LocationsFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A7ADA21F90FA5800C661C8 /* LocationsFetcher.m */; };
 		44A7ADA51F9100B700C661C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A7ADA41F9100B700C661C8 /* CoreLocation.framework */; };
 		44EF9C441F9252B6000F1382 /* CarInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF9C431F9252B6000F1382 /* CarInformationCell.m */; };
@@ -45,8 +45,8 @@
 		44A7AD931F90A91A00C661C8 /* Coordinates.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coordinates.m; sourceTree = "<group>"; };
 		44A7AD971F90CDA800C661C8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		44A7AD9D1F90CF3D00C661C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44A7AD9E1F90F87400C661C8 /* LocationPins.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationPins.h; sourceTree = "<group>"; };
-		44A7AD9F1F90F87400C661C8 /* LocationPins.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationPins.m; sourceTree = "<group>"; };
+		44A7AD9E1F90F87400C661C8 /* CarsCustomAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarsCustomAnnotation.h; sourceTree = "<group>"; };
+		44A7AD9F1F90F87400C661C8 /* CarsCustomAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarsCustomAnnotation.m; sourceTree = "<group>"; };
 		44A7ADA11F90FA5800C661C8 /* LocationsFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationsFetcher.h; sourceTree = "<group>"; };
 		44A7ADA21F90FA5800C661C8 /* LocationsFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationsFetcher.m; sourceTree = "<group>"; };
 		44A7ADA41F9100B700C661C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -144,8 +144,8 @@
 				44A7AD901F909EDE00C661C8 /* CarInformationModel.m */,
 				44A7AD921F90A91A00C661C8 /* Coordinates.h */,
 				44A7AD931F90A91A00C661C8 /* Coordinates.m */,
-				44A7AD9E1F90F87400C661C8 /* LocationPins.h */,
-				44A7AD9F1F90F87400C661C8 /* LocationPins.m */,
+				44A7AD9E1F90F87400C661C8 /* CarsCustomAnnotation.h */,
+				44A7AD9F1F90F87400C661C8 /* CarsCustomAnnotation.m */,
 				44A7ADA11F90FA5800C661C8 /* LocationsFetcher.h */,
 				44A7ADA21F90FA5800C661C8 /* LocationsFetcher.m */,
 			);
@@ -280,7 +280,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -297,7 +297,7 @@
 				44EF9C441F9252B6000F1382 /* CarInformationCell.m in Sources */,
 				44A7AD861F9090ED00C661C8 /* main.m in Sources */,
 				44A7AD781F9090ED00C661C8 /* AppDelegate.m in Sources */,
-				44A7ADA01F90F87400C661C8 /* LocationPins.m in Sources */,
+				44A7ADA01F90F87400C661C8 /* CarsCustomAnnotation.m in Sources */,
 				44EF9C4E1F927867000F1382 /* CustomTabBarViewController.m in Sources */,
 				44EF9C471F925599000F1382 /* CarListingsViewController.m in Sources */,
 				44A7AD911F909EDE00C661C8 /* CarInformationModel.m in Sources */,
@@ -436,10 +436,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EU2T75VWJ8;
+				DEVELOPMENT_TEAM = 9W74SH3J3W;
 				INFOPLIST_FILE = "Locations Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tplmaps.Locations-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.majidBashir.Locations-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -451,10 +451,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EU2T75VWJ8;
+				DEVELOPMENT_TEAM = 9W74SH3J3W;
 				INFOPLIST_FILE = "Locations Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tplmaps.Locations-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.majidBashir.Locations-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

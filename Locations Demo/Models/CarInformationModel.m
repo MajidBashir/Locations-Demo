@@ -16,8 +16,8 @@
         _name    = dictionary[@"name"];
         _address      = dictionary [@"address"];
         _coordinates  = [[Coordinates alloc]initWithArray:dictionary[@"coordinates"]];
-        _engineType  = dictionary [@"drive_id"];
-        _exterior    = dictionary[@"speed"];
+        _engineType  = dictionary [@"engineType"];
+        _exterior    = dictionary[@"exterior"];
         _fuel    = dictionary[@"fuel"];
         _interior    = dictionary[@"interior"];
         _vin    = dictionary[@"vin"];
