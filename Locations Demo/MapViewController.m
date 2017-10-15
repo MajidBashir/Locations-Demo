@@ -10,7 +10,6 @@
 #import "CarInformationModel.h"
 #import <MapKit/MapKit.h>
 #import "CarsCustomAnnotation.h"
-#import "DataManager.h"
 #import  <CoreLocation/CoreLocation.h>
 #import "DataManager.h"
 
@@ -61,14 +60,7 @@
 #pragma mark -
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.delegate = self;
-    
+- (void)startUpdatingLocation {
     if ([CLLocationManager locationServicesEnabled] ) {
         if (self.locationManager == nil )  {
             self.locationManager = [[CLLocationManager alloc] init];
@@ -79,6 +71,17 @@
         
         [self.locationManager startUpdatingLocation];
     }
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    
+    [self startUpdatingLocation];
     
     if ([[DataManager sharedManager] isDataUpdated]) {
         //data manger has updated its data fetch it from shared instance.
@@ -100,11 +103,11 @@
 }
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Utility method for Notification
 - (void)dataManagerDataUpdatedNotification:(NSNotification *)notification {
@@ -114,6 +117,7 @@
     [self.listOfLocations addObjectsFromArray: [[DataManager sharedManager]completeData]];
     [self addAnnotationForLocations:self.listOfLocations];
 }
+
 
 
 #pragma mark - MKMapViewDelegate
@@ -177,10 +181,8 @@
         if (mapView.selectedAnnotations.count > 0 && ![mapView.selectedAnnotations containsObject:annotation]) {
             pinView.hidden = YES;
         }
-        
         return pinView;
     }
-    
     return nil;
 }
 
